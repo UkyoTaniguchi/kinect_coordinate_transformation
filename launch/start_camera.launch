@@ -5,6 +5,7 @@
   <!-- カメラプラグインの起動 -->
   <node name="gazebo_camera_plugin" pkg="gazebo_ros" type="spawn_model" args="-file $(find my_camera_package)/models/kinect/model.sdf -sdf -model kinect" />
 
-  <!-- TFブロードキャスターの起動 -->
-  <node name="static_tf_broadcaster" pkg="my_camera_package" type="static_tf_broadcaster.py" output="screen" />
+  <!-- Gazeboのモデル状態をTFに変換するノード -->
+  <node name="gazebo_to_tf" pkg="my_camera_package" type="gazebo_to_tf.py" output="screen" />
+  
 </launch>
