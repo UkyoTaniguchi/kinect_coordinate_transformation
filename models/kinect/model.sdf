@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
-  <model name="kinect">
+  <model name="kinect1">
     <pose>0 0 0.036 0 0 0</pose>
     <link name="link">
       <inertial>
@@ -34,20 +34,18 @@
             <far>3</far>
           </clip>
         </camera>
-        /!--ここから追加--/
         <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+          <robotNamespace>/kinect1</robotNamespace>
           <baseline>0.2</baseline>
           <alwaysOn>true</alwaysOn>
-          <!-- Keep this zero, update_rate in the parent <sensor> tag
-            will control the frame rate. -->
           <updateRate>0.0</updateRate>
           <cameraName>camera_ir</cameraName>
-          <imageTopicName>/camera/color/image_raw</imageTopicName>
-          <cameraInfoTopicName>/camera/color/camera_info</cameraInfoTopicName>
-          <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>/camera/depth/camera_info</depthImageCameraInfoTopicName>
-          <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
-          <frameName>camera_link</frameName>
+          <imageTopicName>/kinect1/camera/color/image_raw</imageTopicName>
+          <cameraInfoTopicName>/kinect1/camera/color/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>/kinect1/camera/depth/image_raw</depthImageTopicName>
+          <depthImageCameraInfoTopicName>/kinect1/camera/depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>/kinect1/camera/depth/points</pointCloudTopicName>
+          <frameName>kinect1_camera_link</frameName>
           <pointCloudCutoff>0.5</pointCloudCutoff>
           <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
           <distortionK1>0</distortionK1>
