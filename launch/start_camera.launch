@@ -2,10 +2,15 @@
   <!-- Gazeboの起動 -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch" />
 
-  <!-- カメラプラグインの起動 -->
-  <node name="gazebo_camera_plugin" pkg="gazebo_ros" type="spawn_model" args="-file $(find my_camera_package)/models/kinect/model.sdf -sdf -model kinect" />
+  <!-- Kinect1の起動 -->
+  <node name="gazebo_camera_plugin_1" pkg="gazebo_ros" type="spawn_model" args="-file $(find my_camera_package)/models/kinect/model1.sdf -sdf -model kinect1 -x 0 -y 0 -z 0" />
+
+  <!-- Kinect2の起動 -->
+  <node name="gazebo_camera_plugin_2" pkg="gazebo_ros" type="spawn_model" args="-file $(find my_camera_package)/models/kinect/model2.sdf -sdf -model kinect2 -x 2 -y 1 -z 0 -R 0 -P 0 -Y 3.92699" />
+
+  <!-- Kinect3の起動 -->
+  <node name="gazebo_camera_plugin_3" pkg="gazebo_ros" type="spawn_model" args="-file $(find my_camera_package)/models/kinect/model3.sdf -sdf -model kinect3 -x 2 -y -1 -z 0 -R 0 -P 0 -Y 2.35619" />
 
   <!-- Gazeboのモデル状態をTFに変換するノード -->
   <node name="gazebo_to_tf" pkg="my_camera_package" type="gazebo_to_tf.py" output="screen" />
-  
 </launch>
